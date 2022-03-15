@@ -209,3 +209,54 @@ My attempt at the Kubebuilder CronJob Tutorial
 - NOTE
 	- // +kubebuilder:validation markers are found in the 'Designing an API' section
 	- controller-gen crd -w finds ALL supported markers for declaring validations
+# [ISSUES/ERRORS] Kubebuilder Tutorial Notes
+
+Quick Start Tutorial
+
+- Prerequisites 
+- Installation
+- Create Project
+- Create an API
+- Test it out
+	- [ISSUE] error: unable to recognize "STDIN": no matches for kind "CustomResourceDefinition" in version "apiextensions.k8s.io/v1beta1"
+	- [SOLUTION] Use older issue when creating the kind cluster
+		- kind create cluster --image=kindest/node:v1.21.2
+- Install Instances of Customer Resources
+- Run It on the Cluster
+	- [ISSUE] failed to start the controlplane. retried 5 times: fork/exec /usr/local/kubebuilder/bin/etcd: no such file or directory
+	- [CAUSE] kubebuilder assumes the etcd is in a certain folder but it's not a guarantee
+		- How do I locate the etcd?
+
+
+CronJob
+
+- CronJob - runs one-off tasks on the Kubernetes cluster at regular intervals
+	- Builds on top of the job controller (job controllers run the tasks only once)
+- Webhook Implementation
+	- [ISSUE] 2022/03/14 19:12:58 failed to create webhook: unknown project version 3
+	- [CAUSE] PROJECT file's version had "3"
+	- [SOLUTION] Change PROJECT file's version to "2"; "1" doesn't support all of the flags needed for the command
+- Running the CronJob
+	- [ISSUE] Makefile: 46: *** missing separator. Stop.
+	- [CAUSE] Possibly spaces being used instead of tabs
+	- [SOLUTION] cat -e -t -v makefile_name to find and replace spaces with tabs
+		- Copied the Makefile from the GitHub repo
+- Also in Running the CronJob
+	- [ISSUE] SideEffects is required for creating v1 {Mutating,Validating}WebhookConfiguration & Error: not all generators ran successfully
+	- [CAUSE] Missing 'SideEffects' argument for marker used in webhook configuration in cronjob_webhook.go
+	- [SOLUTION] added  sideEffects=None argument to the +kubebuilder markers in cronjob_webhook.go
+		- If you use the code in the GitHub repo then it's already there; otherwise, you'd have to follow the error message to figure it out.
+
+# Helpful Commands
+
+- Kind Commands
+
+		kind create cluster --name=<CLUSTER NAME> --image=<IMAGE NAME>     
+		
+		kind delete cluster
+
+- Kubectl Commands
+
+		kubectl cluster-info --context <CLUSTER NAME>
+
+- Docker Commands
