@@ -1,5 +1,5 @@
 # Kubebuilder CronJob Tutorial Project
-My attempt at the Kubebuilder CronJob Tutorial & Personal Notes
+My attempt at the Kubebuilder CronJob Tutorial & personal notes.
 
 ## Introduction
 
