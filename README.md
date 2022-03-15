@@ -219,7 +219,7 @@ Quick Start Tutorial
 - Create an API
 - Test it out
 	- [ISSUE] error: unable to recognize "STDIN": no matches for kind "CustomResourceDefinition" in version "apiextensions.k8s.io/v1beta1"
-	- [SOLUTION] Use older issue when creating the kind cluster
+	- [SOLUTION] Use older image when creating the kind cluster
 		- kind create cluster --image=kindest/node:v1.21.2
 - Install Instances of Customer Resources
 - Run It on the Cluster
