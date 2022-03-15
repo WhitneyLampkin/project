@@ -211,7 +211,7 @@ My attempt at the Kubebuilder CronJob Tutorial & personal notes.
 	- controller-gen crd -w finds ALL supported markers for declaring validations
 # [ISSUES/ERRORS] Kubebuilder Tutorial Notes
 
-Quick Start Tutorial
+## Quick Start Tutorial
 
 - Prerequisites 
 - Installation
@@ -228,7 +228,7 @@ Quick Start Tutorial
 		- How do I locate the etcd?
 
 
-CronJob
+## CronJob
 
 - CronJob - runs one-off tasks on the Kubernetes cluster at regular intervals
 	- Builds on top of the job controller (job controllers run the tasks only once)
