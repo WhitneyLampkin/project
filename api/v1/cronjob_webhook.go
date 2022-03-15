@@ -121,6 +121,7 @@ func (r *CronJob) validateCronJobSpec() *field.Error {
 		field.NewPath("spec").Child("schedule"))
 }
 
+// Validates the cron schedule is well-formatted
 func validateScheduleFormat(schedule string, fldPath *field.Path) *field.Error {
 	if _, err := cron.ParseStandard(schedule); err != nil {
 		return field.Invalid(fldPath, schedule, err.Error())
