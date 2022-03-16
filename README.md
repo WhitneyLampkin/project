@@ -255,7 +255,7 @@ My attempt at the Kubebuilder CronJob Tutorial & personal notes.
 		- Finally got the make manifests and make install commands to succeed with these changes:
 		- [CRD Creation Screenshot](https://github.com/WhitneyLampkin/project/blob/master/images/crd-creation-terminal-screenshot.png?raw=true)
 	- [ISSUE] Test Failures
-		- [CronJob Test Failures](https://github.com/WhitneyLampkin/project/blob/master/images/failed-cronjob-test-screenshot.png?raw=true)
+		- [CronJob Test Failures Screenshot](https://github.com/WhitneyLampkin/project/blob/master/images/failed-cronjob-test-screenshot.png?raw=true)
 		- [CAUSE] ? 
 	- [SOLUTION] ?
 - Running the CronJob (Makefile  vet command issue)
@@ -277,6 +277,7 @@ My attempt at the Kubebuilder CronJob Tutorial & personal notes.
 				5b1fa8e3e100: Preparing 
 				denied: requested access to the resource is denied
 				make: *** [Makefile:67: docker-push] Error 1` 
+		- [Docker Push Issues Screenshot](docker-push-issues.png)
 	- [CAUSE] Do I need to tag the docker image?
 	- [SOLUTION] ?
 
