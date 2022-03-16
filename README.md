@@ -258,10 +258,16 @@ My attempt at the Kubebuilder CronJob Tutorial & personal notes.
 		- [CronJob Test Failures](https://github.com/WhitneyLampkin/project/blob/master/images/failed-cronjob-test-screenshot.png?raw=true)
 		- [CAUSE] ? 
 	- [SOLUTION] ?
-- Runn the CronJob (Makefile  vet command issue)
+- Running the CronJob (Makefile  vet command issue)
 	- [ISSUE] Makefile - vet: go vet./...
-	- [CAUSE] ?
-	- [SOLUTION] ?
+		- `tutorial.kubebuilder.io/project/api/v1 tested by
+			        tutorial.kubebuilder.io/project/api/v1.test imports
+			        sigs.k8s.io/controller-runtime/pkg/envtest imports
+			        sigs.k8s.io/controller-runtime/pkg/internal/testing/addr imports
+			        io/fs: package io/fs is not in GOROOT (/home/wlampkin/.gvm/gos/go1.14.15/src/io/fs)`
+	- [CAUSE] I forgot to use `gvm` to change my go version to the newer version. 
+		- This package wasn't available with the older version.
+	- [SOLUTION] `gvm use 1.17.8`
 
 # Helpful Commands
 
