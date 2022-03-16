@@ -333,6 +333,9 @@ My attempt at the Kubebuilder CronJob Tutorial & personal notes.
 		- [Docker Push Issues Screenshot](docker-push-issues.png)
 	- [CAUSE] Do I need to tag the docker image?
 	- [SOLUTION] ?
+		- TODOs:
+			- Look into issues with sigs.k8s.io/controller-runtime/pkg/client/config.GetConfigOrDie
+			- Why does controller-runtime have so many issues in the project?
 
 # Helpful Commands
 
