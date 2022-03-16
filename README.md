@@ -253,9 +253,9 @@ My attempt at the Kubebuilder CronJob Tutorial & personal notes.
 		- /mnt/c/ uses newer version to run Kubebuilder
 		- Linux uses older version since there is where my aks-validator work is done
 		- Finally got the make manifests and make install commands to succeed with these changes:
-		- [CRD Creation Screenshot](https://github.com/WhitneyLampkin/project/blob/master/images/crd-creation-terminal-screenshot.png)
+		- [CRD Creation Screenshot](https://github.com/WhitneyLampkin/project/blob/master/images/crd-creation-terminal-screenshot.png?raw=true)
 	- [ISSUE] Test Failures
-		- [CronJob Test Failures](https://github.com/WhitneyLampkin/project/blob/master/images/failed-cronjob-test-screenshot.png)
+		- [CronJob Test Failures](https://github.com/WhitneyLampkin/project/blob/master/images/failed-cronjob-test-screenshot.png?raw=true)
 	- [CAUSE]
 	- [SOLUTION]
 
