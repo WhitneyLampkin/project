@@ -241,11 +241,23 @@ My attempt at the Kubebuilder CronJob Tutorial & personal notes.
 	- [CAUSE] Possibly spaces being used instead of tabs
 	- [SOLUTION] cat -e -t -v makefile_name to find and replace spaces with tabs
 		- Copied the Makefile from the GitHub repo
-- Also in Running the CronJob
+- - Also in Running the CronJob
 	- [ISSUE] SideEffects is required for creating v1 {Mutating,Validating}WebhookConfiguration & Error: not all generators ran successfully
 	- [CAUSE] Missing 'SideEffects' argument for marker used in webhook configuration in cronjob_webhook.go
 	- [SOLUTION] added  sideEffects=None argument to the +kubebuilder markers in cronjob_webhook.go
 		- If you use the code in the GitHub repo then it's already there; otherwise, you'd have to follow the error message to figure it out.
+	- [ISSUE] Go versions don't match
+	- [CAUSE] Installed an older version of Go for the validator project but Kubebuilder requires a newer version 
+	- [SOLUTION] Use GVM to install the new version
+		- Also deleted the older version from WINDOWS 
+		- /mnt/c/ uses newer version to run Kubebuilder
+		- Linux uses older version since there is where my aks-validator work is done
+		- Finally got the make manifests and make install commands to succeed with these changes:
+		- [CRD Creation Screenshot](../project/images/crd-creation-terminal-screenshot.png)
+	- [ISSUE] Test Failures
+		- [CronJob Test Failures](../project/images/failed-cronjob-test-screenshot.png)
+	- [CAUSE]
+	- [SOLUTION]
 
 # Helpful Commands
 
