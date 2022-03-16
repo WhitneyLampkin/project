@@ -268,6 +268,17 @@ My attempt at the Kubebuilder CronJob Tutorial & personal notes.
 	- [CAUSE] I forgot to use `gvm` to change my go version to the newer version. 
 		- This package wasn't available with the older version.
 	- [SOLUTION] `gvm use 1.17.8`
+- Running the CronJob (Deploying webhooks)
+	- [ISSUE] make docker push command fails
+		- `make docker-push IMG=kind-kind/project:v1
+				docker push kind-kind/project:v1
+				The push refers to repository [docker.io/kind-kind/project]
+				8efc1b9bea2d: Preparing 
+				5b1fa8e3e100: Preparing 
+				denied: requested access to the resource is denied
+				make: *** [Makefile:67: docker-push] Error 1` 
+	- [CAUSE] Do I need to tag the docker image?
+	- [SOLUTION] ?
 
 # Helpful Commands
 
