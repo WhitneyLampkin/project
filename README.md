@@ -209,6 +209,59 @@ My attempt at the Kubebuilder CronJob Tutorial & personal notes.
 - NOTE
 	- // +kubebuilder:validation markers are found in the 'Designing an API' section
 	- controller-gen crd -w finds ALL supported markers for declaring validations
+
+## 1.9 Running and Deploying the Controller
+
+- Optional
+	- make manifests to make changes to the API definitions
+- Run and test the controller locally against the cluster
+	- Install CRDs with make install
+		- Automatically updates the YAML manifests, if needed
+	- Run the controller against our cluster
+		- No RBAC necessary at this point
+	- Use cat -e -t -v makefile_name to check for tabs in the Makefile
+	- Use KIND to create a cluster
+		- kind create cluster
+		- kind delete cluster
+	- Optionally add/change API definitions and generate new manifests for new CRs and CRDs with maek manifests
+	- Install CRDs with make install
+	- Use new terminal to run the controllers with make run ENABLE_WEBHOOKS=false
+		- [RESULT] Controller logs but nothing else
+	- Write sample/fake CronJob to test the controller with
+		- Create the yaml file
+		- Create with kubectl create -f config/samples/batch_v1_cronjob.yaml
+		- [RESULT] Terminal should show more activity related to the new Cronjob that's running
+		- Watch Cronjob Changes
+			- kubectl get cronjob.batch.tutorial.kubebuilder.io -o yaml
+			- kubectl get job
+		- Run in the cluster
+			- Stop the make run with ctrl + c
+			- Docker Build
+				- make docker-build docker-push IMG=<some-registry>/<project-name>:tag 
+			- Docker Deploy
+				- make deploy IMG=<some-registry>/<project-name>:tag 
+			- [RESULTS] List the job against
+
+
+## 1.9.1 Deploying the Cert Manager
+
+- Download/install Cert Manager
+- Use cert-manager.io/inject-ca-from key in the Mutating | ValidatingWebhookConfiguration objects
+	- <certificate-namespace>/<certificate-name>
+
+
+## 1.9.2 Deploying Admission Webhooks
+
+- Requirements
+	- Kind cluster
+	- Cert Manager
+- Build the image
+	- make docker-build docker-push IMG=<some-registry>/<project-name>:tag
+	- kind load docker-image <your-image-name>:tag --name <your-kind-cluster-name>
+- Deploy Webhooks
+	- Update config/default/kustomization.yaml and config/crd/kustomization.yaml 
+	- Deploy to the cluster
+		- Use docker images to list the images if you don't remember the image name
 # [ISSUES/ERRORS] Kubebuilder Tutorial Notes
 
 ## Quick Start Tutorial
