@@ -256,8 +256,12 @@ My attempt at the Kubebuilder CronJob Tutorial & personal notes.
 		- [CRD Creation Screenshot](https://github.com/WhitneyLampkin/project/blob/master/images/crd-creation-terminal-screenshot.png?raw=true)
 	- [ISSUE] Test Failures
 		- [CronJob Test Failures](https://github.com/WhitneyLampkin/project/blob/master/images/failed-cronjob-test-screenshot.png?raw=true)
-	- [CAUSE]
-	- [SOLUTION]
+		- [CAUSE] ? 
+	- [SOLUTION] ?
+- Runn the CronJob (Makefile  vet command issue)
+	- [ISSUE] Makefile - vet: go vet./...
+	- [CAUSE] ?
+	- [SOLUTION] ?
 
 # Helpful Commands
 
