@@ -346,6 +346,17 @@ My attempt at the Kubebuilder CronJob Tutorial & personal notes.
 			- Installed GVM
 			- Installed Go 1.4 as base
 			- Installed Go 1.17.8 to get all of the packages needed for the Cronjob project
+		- Cloned the repo to Linux and opened with code . from the Ubuntu terminal
+- Running the CronJob (Building controllers failed)
+	- [ISSUE] => ERROR [builder 8/9] COPY controllers/ controllers/
+			------
+			 > [builder 8/9] COPY controllers/ controllers/:
+			------
+			failed to compute cache key: "/controllers" not found: not found
+			make: *** [Makefile:64: docker-build] Error 1
+	- [CAUSE] Controller weren't in the project because I was using the wrong Kubebuilder path. I had the starter project instead of the completed version.
+	- [SOLUTION] Change directory to : /go/GitHub/github.com/whitneylampkin/kubebuilder/docs/book/src/cronjob-tutorial/testdata/project 
+		- SUCCESS!!!
 
 # Helpful Commands
 
