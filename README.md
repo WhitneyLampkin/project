@@ -331,8 +331,14 @@ My attempt at the Kubebuilder CronJob Tutorial & personal notes.
 				denied: requested access to the resource is denied
 				make: *** [Makefile:67: docker-push] Error 1` 
 		- [Docker Push Issues Screenshot](docker-push-issues.png)
-	- [CAUSE] Do I need to tag the docker image?
-	- [SOLUTION] ?
+	- [CAUSE] 
+		- Did I need to run the image?
+		- Do I need to tag the docker image?
+	- [SOLUTION]
+		- Used docker documentation to correct image issues
+		- Also switched to Ubuntu image
+		- Getting activity with make docker-build docker-push IMG=localhost:45875/kind-kind/project:v1  
+		- docker-build works but docker-push still fails
 		- TODOs:
 			- Look into issues with sigs.k8s.io/controller-runtime/pkg/client/config.GetConfigOrDie
 			- Why does controller-runtime have so many issues in the project?
