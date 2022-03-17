@@ -342,6 +342,10 @@ My attempt at the Kubebuilder CronJob Tutorial & personal notes.
 		- TODOs:
 			- Look into issues with sigs.k8s.io/controller-runtime/pkg/client/config.GetConfigOrDie
 			- Why does controller-runtime have so many issues in the project?
+		- Totally Uninstalled ALL Go verisons & GVM
+			- Installed GVM
+			- Installed Go 1.4 as base
+			- Installed Go 1.17.8 to get all of the packages needed for the Cronjob project
 
 # Helpful Commands
 
