@@ -262,6 +262,22 @@ My attempt at the Kubebuilder CronJob Tutorial & personal notes.
 	- Update config/default/kustomization.yaml and config/crd/kustomization.yaml 
 	- Deploy to the cluster
 		- Use docker images to list the images if you don't remember the image name
+
+## Summary of Steps to Run Cronjob Project
+
+- Create Kind cluster
+- Make Install
+- Make Run w/ ENABLE_WEBHOOKS=false
+- Confirm controller set up with
+	- kubectl create -f config/samples/batch_v1_cronjob.yaml
+	- kubectl get cronjob.batch.tutorial.kubebuilder.io -o yaml
+	- kubectl get job
+- Run in Kind Cluster
+	- make docker-build docker-push IMG=<some-registry>/<project-name>:tag
+		- Example
+	- make deploy IMG=<some-registry>/<project-name>:tag
+		- Example
+	- [NOTE] The idea of <some-registry> was throwing me off so I left it off to run locally.
 # [ISSUES/ERRORS] Kubebuilder Tutorial Notes
 
 ## Quick Start Tutorial
@@ -357,6 +373,33 @@ My attempt at the Kubebuilder CronJob Tutorial & personal notes.
 	- [CAUSE] Controller weren't in the project because I was using the wrong Kubebuilder path. I had the starter project instead of the completed version.
 	- [SOLUTION] Change directory to : /go/GitHub/github.com/whitneylampkin/kubebuilder/docs/book/src/cronjob-tutorial/testdata/project 
 		- SUCCESS!!!
+	- Running the Cronjob (Error 403 - User Forbidden on Docker Push)
+	- [ISSUE] Error 403 - User Forbidden on Docker Push
+	- [CAUSE] Line 25 of Dockerfile 
+	- [SOLUTION] Commented out the USER 65532:65532 line
+- Running the Cronjob (TCP Connection Refused on Docker Push)
+	- [ISSUE] 
+		- <TODO Add image>
+	- [CAUSE] using localhost or 127.0.0.0 for docker tag
+	- [SOLUTION] 
+		- Change localhost or 127.0.0.0 in docker tag
+		- New Error
+			- <TODO Add image>
+		- I honestly don't know what's going on at this point but there is a new error...
+- Running the CronJob (Docker Push Issue)
+	- [ISSUE] 
+		- <TODO Add image>
+	- [CAUSE] Who knows?
+	- [SOLUTION] 
+		- Used https://docs.docker.com/registry/deploying/ to create a registry and pull down the golang:1.17 image 
+		- Disabled 'buildkit' in docker engine file using docker desktop
+		- Progress:
+			- <TODO Add image>
+			- Commented out lines 22-27 in Dockerfile because /workspace/manager couldn't be found
+			- <TODO Add image>
+			- Reinstalled cert manager now that I know more about it
+				- Remember to install CRDs separately if cert-manager-cainjector... is stuck in CrashLoopBackOff
+				- Now I'm running into a cert manager issue that is UGHHHHHHH!!!! So annoying! 
 
 # Helpful Commands
 
@@ -369,5 +412,19 @@ My attempt at the Kubebuilder CronJob Tutorial & personal notes.
 - Kubectl Commands
 
 		kubectl cluster-info --context <CLUSTER NAME>
+		
+		[CERT MANAGER] COMMANDS
+		
+		kubectl get pods --namespace cert-manager 
+		
+		kubectl get crd 
+		
+		kubectl describe crd clusterissuers.cert-manager.io 
 
 - Docker Commands
+
+		docker ps
+
+- Other
+
+		sudo apt-get remove golang-go Removes Go from Ubuntu
