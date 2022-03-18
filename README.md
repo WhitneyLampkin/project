@@ -403,6 +403,14 @@ My attempt at the Kubebuilder CronJob Tutorial & personal notes.
 				- Remember to install CRDs separately if cert-manager-cainjector... is stuck in CrashLoopBackOff
 				- Now I'm running into a cert manager issue that is UGHHHHHHH!!!! So annoying! 
 
+# Dependencies
+
+- Cert Manager
+- Docker
+- Ginkgo
+- Kind
+- Kubernetes
+
 # Helpful Commands
 
 - Kind Commands
