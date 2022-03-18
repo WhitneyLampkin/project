@@ -257,6 +257,8 @@ My attempt at the Kubebuilder CronJob Tutorial & personal notes.
 	- Cert Manager
 - Build the image
 	- make docker-build docker-push IMG=<some-registry>/<project-name>:tag
+		- Couldn't get past this point because of issues with Cert Manager...
+		- TODO: Return to this at a later time
 	- kind load docker-image <your-image-name>:tag --name <your-kind-cluster-name>
 - Deploy Webhooks
 	- Update config/default/kustomization.yaml and config/crd/kustomization.yaml 
