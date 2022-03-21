@@ -280,6 +280,14 @@ My attempt at the Kubebuilder CronJob Tutorial & personal notes.
 	- make deploy IMG=<some-registry>/<project-name>:tag
 		- Example
 	- [NOTE] The idea of <some-registry> was throwing me off so I left it off to run locally.
+
+1.10 Writing Tests
+
+- Tests use Ginkgo
+
+  
+1.11 Epilogue
+-
 # [ISSUES/ERRORS] Kubebuilder Tutorial Notes
 
 ## Quick Start Tutorial
@@ -410,6 +418,7 @@ My attempt at the Kubebuilder CronJob Tutorial & personal notes.
 - Ginkgo
 - Kind
 - Kubernetes
+- Vim (used in writing tests section)
 
 # Helpful Commands
 
